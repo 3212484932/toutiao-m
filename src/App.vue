@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>黑马头条</h1>
+    <!-- 占位路由 -->
     <router-view />
   </div>
 </template>
