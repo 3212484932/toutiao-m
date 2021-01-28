@@ -73,7 +73,7 @@
     </van-cell-group>
 
     <div class="tip_warp">
-      <span class="tip">万能登录手机号：15635748705</span>
+      <span class="tip">万能登录手机号：13922222222</span>
       <span class="tip">万能登录验证码：246810</span>
     </div>
     <!-- /登录表单 -->
@@ -97,7 +97,7 @@ export default {
     return {
       // 登录请求信息
       user: {
-        mobile: '15635748705', // 手机号
+        mobile: '13922222222', // 手机号
         code: '246810' // 验证码
       },
       // 校验登录手机号验证码的规则
@@ -145,6 +145,8 @@ export default {
         this.$toast.success('登录成功')
         // 保存token等数据
         this.$store.commit('setUser', data.data)
+        // 跳回到原来页面
+        this.$router.back()
       } catch (err) {
         // console.l、og(err)
         // console.log('登陆失败', err)

@@ -2,6 +2,18 @@
  * 用户相关的请求模块
  */
 import request from '../utils/request.js'
+// 引入 store模块
+// import store from '../store/index.js'
+
+/**
+ * 获取所有的接口地址
+ */
+// export const api = () => {
+//   return request({
+//     method: 'GET',
+//     url: '/app/'
+//   })
+// }
 
 /**
  * 登录和注册
@@ -22,5 +34,29 @@ export const sendSms = mobile => {
   return request({
     method: 'GET',
     url: `/app/v1_0/sms/codes/${mobile}`
+  })
+}
+
+/**
+ * 获取指定用户的信息
+ */
+
+export const getCurrentUser = () => {
+  return request({
+    method: 'GET',
+    url: '/app/v1_0/user'
+    // headers: {
+    //   Authorization: `Bearer ${store.state.user.token}`
+    // }
+  })
+}
+
+/**
+ * 获取用户频道的列表
+ */
+export const getUserChannels = () => {
+  return request({
+    method: 'GET',
+    url: '/app/v1_0/user/channels'
   })
 }

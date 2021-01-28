@@ -17,6 +17,9 @@ import 'amfe-flexible'
 // 加载全局样式文件 (一般将项目中的全局样式放在加载的最后面 用于覆盖前面的样式)
 import './styles/index.less'
 
+// 时间函数插件
+import '../src/utils/dayjs.js'
+
 // 全局注册 vant中的组件
 Vue.use(Vant)
 

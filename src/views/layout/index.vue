@@ -5,17 +5,27 @@
     <!-- /子路由的出口 -->
 
     <!-- 底部导航栏 -->
-    <van-tabbar v-model="active">
-      <van-tabbar-item icon-prefix="icon" icon="shouye">首页</van-tabbar-item>
-      <van-tabbar-item icon-prefix="icon" icon="wenda">问答</van-tabbar-item>
-      <van-tabbar-item icon-prefix="icon" icon="shipin">视频</van-tabbar-item>
-      <van-tabbar-item icon-prefix="icon" icon="wode">我的</van-tabbar-item>
+    <van-tabbar v-model="active" route>
+      <van-tabbar-item icon-prefix="icon" to="/" icon="shouye"
+        >首页</van-tabbar-item
+      >
+      <van-tabbar-item icon-prefix="icon" to="/qa" icon="wenda"
+        >问答</van-tabbar-item
+      >
+      <van-tabbar-item icon-prefix="icon" to="/video" icon="shipin"
+        >视频</van-tabbar-item
+      >
+      <van-tabbar-item icon-prefix="icon" to="/my" icon="wode"
+        >我的</van-tabbar-item
+      >
     </van-tabbar>
     <!-- /底部导航栏 -->
   </div>
 </template>
 
 <script>
+// import { api } from '../../api/user.js'
+
 export default {
   name: '',
   data() {
@@ -23,9 +33,17 @@ export default {
       active: 0
     }
   },
-  created() {},
+  created() {
+    // this.getMenuList()
+  },
   mounted() {},
-  methods: {}
+  methods: {
+    // 获取所有放入接口
+    // async getMenuList() {
+    //   const { data: res } = await api()
+    //   console.log(res)
+    // }
+  }
 }
 </script>
 
