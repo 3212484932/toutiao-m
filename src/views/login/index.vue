@@ -73,7 +73,7 @@
     </van-cell-group>
 
     <div class="tip_warp">
-      <span class="tip">万能登录手机号：13922222222</span>
+      <span class="tip">万能登录手机号：13955555555</span>
       <span class="tip">万能登录验证码：246810</span>
     </div>
     <!-- /登录表单 -->
@@ -97,7 +97,7 @@ export default {
     return {
       // 登录请求信息
       user: {
-        mobile: '13922222222', // 手机号
+        mobile: '13955555555', // 手机号
         code: '246810' // 验证码
       },
       // 校验登录手机号验证码的规则
