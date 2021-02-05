@@ -83,3 +83,35 @@ export const deleteFollow = userId => {
     url: `/app/v1_0/user/followings/${userId}`
   })
 }
+
+/**
+ * 取消关注用户
+ */
+export const getUserProfile = () => {
+  return request({
+    method: 'GET',
+    url: '/app/v1_0/user/profile'
+  })
+}
+
+/**
+ * 修改个人用户资料
+ */
+export const updataUserProfile = data => {
+  return request({
+    method: 'PATCH',
+    url: '/app/v1_0/user/profile',
+    data
+  })
+}
+
+/**
+ * 修改个人用户资料
+ */
+export const updataUserPhoto = data => {
+  return request({
+    method: 'PATCH',
+    url: '/app/v1_0/user/photo',
+    data
+  })
+}
