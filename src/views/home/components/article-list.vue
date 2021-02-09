@@ -1,5 +1,5 @@
 <template>
-  <div class="article-list">
+  <div class="article-list" ref="article-list">
     <van-pull-refresh
       v-model="isPullLoading"
       @refresh="onRefresh"
@@ -29,8 +29,8 @@
 
 <script>
 import { getArticles } from '../../../api/article.js'
-import ArticleItem from '../../../components/article-item.vue'
-
+import ArticleItem from '../../../components/article-item'
+import { debounce } from 'lodash'
 export default {
   name: 'articlesList',
   props: {
@@ -55,11 +55,27 @@ export default {
       // 监听事件打开和关闭
       isPullLoading: false,
       // 刷新成功提示文字
-      isSuccessText: ''
+      isSuccessText: '',
+      // 列表滚动到顶部的距离
+      scrollTop: 0
     }
   },
   created() {},
-  mounted() {},
+  mounted() {
+    const articleList = this.$refs['article-list']
+    articleList.onscroll = debounce(() => {
+      // console.log(articleList.scrollTop)
+      this.scrollTop = articleList.scrollTop
+    }, 50)
+  },
+  activated() {
+    // 打印测试
+    console.log('从缓存中被激活')
+    this.$refs['article-list'].scrollTop = this.scrollTop
+  },
+  // deactivated() {
+  //   console.log('组件失去活动了')
+  // },
   methods: {
     // 列表刷新事件
     async onLoad() {

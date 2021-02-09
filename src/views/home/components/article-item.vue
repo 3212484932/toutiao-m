@@ -15,7 +15,7 @@
       {{ article.title }}
     </div>
     <div slot="label">
-      <div class="cover-warp" v-if="article.cover.type >= 2">
+      <div class="cover-warp" v-if="article.cover.type === 3">
         <div
           class="cover-warp-item"
           v-for="(item, index) in article.cover.images"

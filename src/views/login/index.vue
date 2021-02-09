@@ -145,10 +145,14 @@ export default {
         this.$toast.success('登录成功')
         // 保存token等数据
         this.$store.commit('setUser', data.data)
+
+        // 把 layout 的缓存清除，让他重新渲染
+        this.$store.commit('removeCachePage', 'LayoutIndex')
         // 跳回到原来页面
-        this.$router.back()
+        // this.$router.back() 之前的这种方式 不友好 有弊端
+        this.$router.push(this.$route.query.redirect || '/')
       } catch (err) {
-        // console.l、og(err)
+        // console.log(err)
         // console.log('登陆失败', err)
         // Toast.fail('登录失败，手机号或验证码错误')
         this.$toast.fail('登录失败，手机号或验证码错误')

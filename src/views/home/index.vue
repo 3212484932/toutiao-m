@@ -20,6 +20,7 @@
         <article-list :channels="item" />
         <!-- /文章列表 -->
       </van-tab>
+      <!-- 汉堡列表按钮定位把列表最后的位置给挡住，解决的办法就是在这里添加一个站位元素 -->
       <div slot="nav-right" class="nav-warp-placeholder"></div>
       <!-- 更换列表模块 -->
       <div class="channelsBtn-warp" @click="isChannelsEditShow = true">

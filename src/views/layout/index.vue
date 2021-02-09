@@ -1,7 +1,9 @@
 <template>
   <div class="layout-container">
     <!-- 子路由的出口 -->
+    <!-- <keep-alive> -->
     <router-view />
+    <!-- </keep-alive> -->
     <!-- /子路由的出口 -->
 
     <!-- 底部导航栏 -->
@@ -27,7 +29,7 @@
 // import { api } from '../../api/user.js'
 
 export default {
-  name: '',
+  name: 'LayoutIndex',
   data() {
     return {
       active: 0
@@ -36,7 +38,9 @@ export default {
   created() {
     // this.getMenuList()
   },
-  mounted() {},
+  mounted() {
+    this.$store.commit('addCachePage', 'LayoutIndex')
+  },
   methods: {
     // 获取所有放入接口
     // async getMenuList() {

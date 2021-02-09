@@ -45,7 +45,18 @@
       </van-grid>
     </van-cell-group>
     <!-- 未登录 -->
-    <div class="not_login" v-else @click="$router.push('/login')">
+    <div
+      class="not_login"
+      v-else
+      @click="
+        $router.push({
+          name: 'login',
+          query: {
+            redirect: '/my'
+          }
+        })
+      "
+    >
       <img class="mobile" src="./mobile.png" />
       <div class="text">注册 / 登录</div>
     </div>
@@ -69,7 +80,7 @@
     <!-- 消息通知 小智同学 退出登录 -->
     <div class="mb-4" style="width: 100%;"></div>
     <van-cell v-if="user" class="sty" title="消息通知" is-link to="" />
-    <van-cell class="sty" title="小智同学" is-link to="" />
+    <van-cell class="sty" title="小智同学" is-link to="/user/chat" />
     <van-cell
       v-if="user"
       class="logout mb-4"
